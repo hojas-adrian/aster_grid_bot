@@ -11,5 +11,13 @@ export default async (ctx: MyContext) => {
   });
   const profit = await gird.testProfit(levels);
 
-  return await ctx.reply(`${levels} ${profit}`);
+  let levelsOutput = "";
+
+  levels.forEach((level, i) => {
+    levelsOutput += `${i + 1} - ${level}\n`;
+  });
+
+  return await ctx.reply(
+    `${levelsOutput} Ganancias estimadas ${profit[0]}% - ${profit[0]}%`
+  );
 };
