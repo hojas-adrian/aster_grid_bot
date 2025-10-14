@@ -1,5 +1,5 @@
 import MyContext from "../helpers/context.ts";
 
 export default async (ctx: MyContext) => {
-  await ctx.reply("hello");
+  return await ctx.reply("hello");
 };
