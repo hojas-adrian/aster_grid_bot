@@ -36,7 +36,7 @@ export default async (ctx: MyContext) => {
     `${levelsOutput}\nGanancias estimadas: ${profit[0].toFixed(
       2
     )}% - ${profit[1].toFixed(2)}%\nInversion minima: ${MinCap.aster.toFixed(
-      2
-    )} aster - ${MinCap.usdt.toFixed(2)} usdt`
+      5
+    )} aster - ${MinCap.usdt.toFixed(5)} usdt`
   );
 };
