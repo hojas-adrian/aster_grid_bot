@@ -56,6 +56,14 @@ export class gird {
     ];
   }
 
+  static pricetoAster(amount: number, price: number) {
+    return amount / price;
+  }
+
+  static pricetoUsd(amount: number, price: number) {
+    return amount * price;
+  }
+
   // grid.forEach(async (level, i) => {
   //   const price = getPrice;
 
