@@ -20,9 +20,13 @@ export default async (ctx: MyContext) => {
     }${level.toFixed(3)}\n`;
   });
 
+  const asterAmount = levels.at(-1)! * 0.01448;
+
   const MinCap = levels.reduce(
     (cap, level) => {
-      level > price ? (cap.aster += level) : (cap.usdt = cap.usdt + 0.01448);
+      level > price
+        ? (cap.aster += asterAmount)
+        : (cap.usdt += asterAmount / level);
       return cap;
     },
     { aster: 0, usdt: 0 }
