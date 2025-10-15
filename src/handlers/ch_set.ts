@@ -12,16 +12,27 @@ export default async (ctx: MyContext) => {
   const profit = await gird.testProfit(levels);
 
   let levelsOutput = "";
+  const price = await gird.getPrice();
 
   levels.forEach((level, i) => {
-    levelsOutput += `${(i + 1).toString().padStart(3, "0")} - ${level.toFixed(
-      3
-    )}\n`;
+    levelsOutput += `${(i + 1).toString().padStart(3, "0")} - ${
+      level < price ? "🟢" : "🔴"
+    }${level.toFixed(3)}\n`;
   });
 
+  const MinCap = levels.reduce(
+    (cap, level) => {
+      level > price ? cap.aster + level : cap.usdt + 0.01448;
+      return cap;
+    },
+    { aster: 0, usdt: 0 }
+  );
+
   return await ctx.reply(
-    `${levelsOutput}\nGanancias estimadas ${profit[0].toFixed(
+    `${levelsOutput}\nGanancias estimadas: ${profit[0].toFixed(
       2
-    )}% - ${profit[0].toFixed(2)}%`
+    )}% - ${profit[1].toFixed(2)}%\nInversion minima: ${MinCap.aster} aster - ${
+      MinCap.usdt
+    } usdt`
   );
 };

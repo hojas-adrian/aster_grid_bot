@@ -37,6 +37,10 @@ export class gird {
     return levels;
   }
 
+  static async getPrice(): Promise<number> {
+    return await aster.getPrice();
+  }
+
   static async testProfit(grid: number[]) {
     const request = await aster.getCommission();
 
