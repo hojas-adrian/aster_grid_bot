@@ -22,7 +22,7 @@ export default async (ctx: MyContext) => {
 
   const MinCap = levels.reduce(
     (cap, level) => {
-      level > price ? cap.aster + level : cap.usdt + 0.01448;
+      level > price ? (cap.aster += level) : (cap.usdt = cap.usdt + 0.01448);
       return cap;
     },
     { aster: 0, usdt: 0 }
