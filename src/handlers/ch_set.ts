@@ -14,10 +14,14 @@ export default async (ctx: MyContext) => {
   let levelsOutput = "";
 
   levels.forEach((level, i) => {
-    levelsOutput += `${i + 1} - ${level}\n`;
+    levelsOutput += `${(i + 1).toString().padStart(3, "0")} - ${level.toFixed(
+      3
+    )}\n`;
   });
 
   return await ctx.reply(
-    `${levelsOutput} Ganancias estimadas ${profit[0]}% - ${profit[0]}%`
+    `${levelsOutput}\nGanancias estimadas ${profit[0].toFixed(
+      2
+    )}% - ${profit[0].toFixed(2)}%`
   );
 };
