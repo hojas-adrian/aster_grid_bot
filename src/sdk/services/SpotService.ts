@@ -36,7 +36,12 @@ export class SpotService {
     }
   ): Promise<Order> {
     const params = { symbol, ...options };
-    return await this.http.request<Order>("DEL", "/api/v1/order", params, true);
+    return await this.http.request<Order>(
+      "DELETE",
+      "/api/v1/order",
+      params,
+      true
+    );
   }
 
   async getOrder(params: {
