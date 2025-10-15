@@ -1,0 +1,4 @@
+export interface CancelAllOrderResponse {
+  code: 200;
+  msg: "The operation of cancel all open order is done.";
+}

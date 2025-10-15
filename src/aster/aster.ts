@@ -60,4 +60,8 @@ export class Aster {
 
     return response.listenKey;
   }
+
+  async cancelOrders() {
+    return await sdk.spot.cancelOpenOrder(this.symbol);
+  }
 }

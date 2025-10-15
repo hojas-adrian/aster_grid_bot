@@ -64,6 +64,10 @@ export class gird {
     return amount * price;
   }
 
+  static cancelAll() {
+    return aster.cancelOrders();
+  }
+
   // grid.forEach(async (level, i) => {
   //   const price = getPrice;
 
