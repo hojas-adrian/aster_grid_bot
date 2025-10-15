@@ -26,7 +26,7 @@ export default async (ctx: MyContext) => {
     (cap, level) => {
       level > price
         ? (cap.aster += asterAmount)
-        : (cap.usdt += asterAmount / level);
+        : (cap.usdt += asterAmount * level);
       return cap;
     },
     { aster: 0, usdt: 0 }
