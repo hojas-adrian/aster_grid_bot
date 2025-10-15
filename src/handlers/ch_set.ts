@@ -20,7 +20,7 @@ export default async (ctx: MyContext) => {
     }${level.toFixed(3)}\n`;
   });
 
-  const asterAmount = gird.pricetoAster(0.01448, levels.at(-1)!);
+  const asterAmount = gird.pricetoAster(0.01448, levels[0]);
 
   const MinCap = levels.reduce(
     (cap, level) => {
