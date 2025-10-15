@@ -12,7 +12,7 @@ export class HttpClient {
   }
 
   async request<T>(
-    method: "GET" | "POST" | "DEL" | "PUT",
+    method: "GET" | "POST" | "DELETE" | "PUT",
     path: string,
     params: Record<string, any> = {},
     authRequired: boolean = false

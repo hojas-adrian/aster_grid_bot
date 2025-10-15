@@ -74,7 +74,7 @@ export class SpotService {
     const params = { symbol, ...options };
 
     return await this.http.request<CancelAllOrderResponse>(
-      "DEL",
+      "DELETE",
       "/api/v1/allOpenOrders",
       params,
       true
