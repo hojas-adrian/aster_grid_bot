@@ -10,11 +10,11 @@ const WS_BASE_URL = "wss://sstream.asterdex.com";
 const listenKey = await gird.generateListenKey();
 
 // Crear la conexión WebSocket (para un stream combinado)
-const ws = new WebSocket(`${WS_BASE_URL}/ws/${listenKey.listenKey}`);
+const ws = new WebSocket(`${WS_BASE_URL}/ws/${listenKey}`);
 
 export const openWs = () => {
   ws.onopen = () => {
-    // console.log("✅ Conectado al WebSocket de Aster");
+    // console.log(`"✅ Conectado al WebSocket de Aster" ${listenKey}`);
 
     // Mensaje para suscribirse a streams
     const subscribeMessage = {
