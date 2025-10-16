@@ -19,7 +19,7 @@ export const openWs = () => {
     // Mensaje para suscribirse a streams
     const subscribeMessage = {
       method: "SUBSCRIBE",
-      params: ["btcusdt@aggTrade", "btcusdt@depth"],
+      params: [""],
       id: 1,
     };
 
@@ -33,14 +33,13 @@ export const openWs = () => {
 ws.onmessage = async (event) => {
   const message = JSON.parse(event.data);
 
-  await api.sendMessage(USER_ID, `${message} ${message.e}`);
-
   // Manejar la respuesta de confirmación de suscripción
   if (message.id === 1 && message.result === null) {
     return await api.sendMessage(USER_ID, "🔔 Suscripción exitosa");
   }
 
   if (message.e === "executionReport") {
+    await api.sendMessage(USER_ID, `${message} ${message.e}`);
     console.log(message);
   }
 };
