@@ -35,7 +35,10 @@ ws.onmessage = async (event) => {
 
   // Manejar la respuesta de confirmación de suscripción
   if (message.id === 1 && message.result === null) {
-    return await api.sendMessage(USER_ID, "🔔 Suscripción exitosa");
+    return await api.sendMessage(
+      USER_ID,
+      `🔔 Suscripción exitosa ${listenKey}`
+    );
   }
 
   if (message.e === "executionReport") {
