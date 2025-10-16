@@ -64,4 +64,8 @@ export class Aster {
   async cancelOrders() {
     return await sdk.spot.cancelOpenOrder(this.symbol);
   }
+
+  async generateListenKey() {
+    return await sdk.account.generateListenKey();
+  }
 }

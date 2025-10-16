@@ -32,6 +32,10 @@ export default async (ctx: MyContext) => {
     { aster: 0, usdt: 0 }
   );
 
+  ctx.session.gridLow = +low;
+  ctx.session.gridTop = +high;
+  ctx.session.steps = +gridCount;
+
   return await ctx.reply(
     `${levelsOutput}\nGanancias estimadas: ${profit[0].toFixed(
       2
