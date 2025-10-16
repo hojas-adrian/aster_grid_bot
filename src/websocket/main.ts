@@ -19,7 +19,7 @@ export const openWs = () => {
     // Mensaje para suscribirse a streams
     const subscribeMessage = {
       method: "SUBSCRIBE",
-      params: [],
+      params: ["btcusdt@aggTrade", "btcusdt@depth"],
       id: 1,
     };
 
